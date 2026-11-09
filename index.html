@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voorbeeld Facebook-advertentie – Centro Vastgoed</title>
+<style>
+:root{--bg:#f0f2f5;--card:#fff;--tx:#050505;--tx2:#65676b;--bl:#1877f2;--line:#dadde1;--gray:#e4e6eb;--navy:#122758;--cy:#00A0DE}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;background:var(--bg);color:var(--tx);font-size:15px;line-height:1.33}
+.ban{position:sticky;top:0;z-index:50;background:#b3261e;color:#fff;text-align:center;padding:8px 12px;font-weight:700;font-size:14px}
+.tabs{display:flex;gap:8px;justify-content:center;padding:12px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:36px;z-index:40;flex-wrap:wrap}
+.tabs button{border:0;background:var(--gray);padding:9px 16px;border-radius:8px;font:600 14px inherit;font-family:inherit;cursor:pointer}
+.tabs button.on{background:#e7f3ff;color:var(--bl)}
+.view{display:none}.view.on{display:block}
+/* AD CARD */
+.ad{background:var(--card);border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,.2);width:100%;overflow:hidden}
+.ad .hd{display:flex;align-items:center;gap:8px;padding:12px 16px 4px}
+.av{width:40px;height:40px;border-radius:50%;overflow:hidden;flex:none;background:#000}
+.av img{width:100%;height:100%;display:block}
+.hd b{display:block;font-size:15px}.hd small{color:var(--tx2);font-size:13px}
+.hd .dots{margin-left:auto;color:var(--tx2);font-size:20px;letter-spacing:1px}
+.pt{padding:4px 16px 12px;font-size:15px;white-space:pre-line;word-wrap:break-word}
+.pt a{color:var(--tx2);font-weight:600;cursor:pointer}
+.med{position:relative;background:#000;overflow:hidden;cursor:pointer}
+.med video{width:100%;aspect-ratio:16/9;max-height:82vh;object-fit:contain;display:block;background:#000}
+.pbtn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:34px;display:flex;align-items:center;justify-content:center;padding-left:6px}
+.pbtn.h{display:none}
+.bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.3)}.bar i{display:block;height:100%;width:0;background:var(--cy)}
+.snd{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.65);color:#fff;border-radius:20px;padding:6px 12px;font-size:13px;font-weight:600}
+.lk{display:flex;align-items:center;gap:10px;background:#f0f2f5;padding:10px 16px}
+.lk .t{flex:1;min-width:0}
+.lk .u{font-size:12px;color:var(--tx2);text-transform:uppercase}
+.lk .h{font-weight:700;font-size:16px;line-height:1.2}
+.lk .d{font-size:13px;color:var(--tx2)}
+.cta{background:var(--gray);border-radius:6px;padding:9px 14px;font-weight:600;font-size:14px;white-space:nowrap}
+.re{display:flex;justify-content:space-around;border-top:1px solid var(--line);margin:0 16px;padding:4px 0}
+.re span{flex:1;text-align:center;padding:8px 0;color:var(--tx2);font-weight:600;font-size:14px}
+.ad .ft{height:6px}
+/* MOBILE */
+.phone{width:390px;max-width:100%;margin:24px auto;background:var(--bg);border:10px solid #111;border-radius:38px;overflow:hidden}
+.mtop{background:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+.mtop .lg{color:var(--bl);font-weight:800;font-size:28px;letter-spacing:-1.5px}
+.mtop .ic{display:flex;gap:8px}.mtop .ic i{width:34px;height:34px;border-radius:50%;background:var(--gray);display:block}
+.mnav{display:flex;justify-content:space-around;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:8px 0;color:var(--tx2);font-size:18px}
+.mnav .a{color:var(--bl);border-bottom:3px solid var(--bl);padding-bottom:5px}
+.mcomp{background:#fff;margin:6px 0;padding:10px 14px;display:flex;gap:10px;align-items:center}
+.mcomp .pill{flex:1;background:var(--bg);border-radius:20px;padding:9px 14px;color:var(--tx2)}
+.ghost{background:#fff;margin-top:6px;height:120px;padding:14px}.ghost i{display:block;height:10px;background:var(--bg);border-radius:5px;margin-bottom:8px}
+/* DESKTOP */
+.dtop{background:#fff;height:56px;display:flex;align-items:center;padding:0 16px;box-shadow:0 2px 4px rgba(0,0,0,.1);gap:12px}
+.dtop .lg{width:40px;height:40px;border-radius:50%;background:var(--bl);color:#fff;font-weight:800;font-size:28px;text-align:center;line-height:44px}
+.dtop .s{background:var(--bg);border-radius:20px;padding:9px 14px;color:var(--tx2);width:240px}
+.dtop .mid{flex:1;display:flex;justify-content:center;gap:60px;color:var(--tx2);font-size:20px}
+.dtop .mid .a{color:var(--bl);border-bottom:3px solid var(--bl);padding-bottom:4px}
+.dtop .r{display:flex;gap:8px}.dtop .r i{width:40px;height:40px;border-radius:50%;background:var(--gray);display:block}
+.dgrid{display:grid;grid-template-columns:280px minmax(0,1fr) 280px;gap:16px;max-width:1260px;margin:0 auto;padding:16px}
+.side{color:var(--tx2);font-size:15px}.side div{padding:10px 8px;border-radius:8px;color:var(--tx);font-weight:500}.side .me{display:flex;align-items:center;gap:10px}.side .me i{width:32px;height:32px;border-radius:50%;background:var(--gray);display:block}
+.side h4{padding:10px 8px;color:var(--tx2);font-size:17px}
+.dfeed{max-width:680px;margin:0 auto;width:100%}
+.dcomp{background:#fff;border-radius:8px;padding:12px 16px;display:flex;gap:10px;align-items:center;margin-bottom:16px;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.dcomp i{width:40px;height:40px;border-radius:50%;background:var(--gray);display:block}.dcomp .pill{flex:1;background:var(--bg);border-radius:20px;padding:10px 14px;color:var(--tx2)}
+
+/* ADS MANAGER */
+.am{max-width:1260px;margin:0 auto;padding:16px}
+.amtop{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 16px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.amtop b{font-size:17px}.crumb{display:flex;gap:8px;align-items:center;color:var(--tx2);font-size:14px;flex-wrap:wrap}
+.crumb span{padding:6px 10px;border-radius:6px;background:var(--bg)}.crumb .a{background:#e7f3ff;color:var(--bl);font-weight:600}
+.amgrid{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:16px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px;margin-bottom:12px}
+.panel h3{font-size:16px;margin-bottom:12px}
+.panel label{display:block;font-size:13px;font-weight:600;color:var(--tx2);margin:12px 0 4px}
+.panel textarea,.panel input,.panel select{width:100%;border:1px solid #ccd0d5;border-radius:6px;padding:9px 10px;font:inherit;background:#fff}
+.panel textarea{min-height:300px;resize:vertical;line-height:1.4}
+.kv{display:grid;grid-template-columns:200px 1fr;gap:6px 12px;font-size:14px}.kv dt{color:var(--tx2)}.kv dd{font-weight:500}
+.note{font-size:12.5px;color:var(--tx2);margin-top:6px}
+.pv{position:sticky;top:104px;align-self:start}
+.pv .ph{display:flex;justify-content:space-between;font-weight:700;margin-bottom:8px}
+.pv .box{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:14px}
+.fw{display:grid;gap:8px;font-size:14px}.fw div{padding:8px 10px;border-radius:6px;background:#f7f8fa;border-left:4px solid var(--cy)}.fw b{color:var(--navy)}
+@media(max-width:1000px){.dgrid{grid-template-columns:1fr}.side{display:none}.amgrid{grid-template-columns:1fr}.pv{position:static}.dtop .s,.dtop .mid{display:none}.kv{grid-template-columns:1fr}}
+.lk,.cta{cursor:pointer}.openlp{margin-top:12px;width:100%;border:0;background:var(--bl);color:#fff;font:600 15px inherit;font-family:inherit;padding:12px;border-radius:8px;cursor:pointer}
+.ov{position:fixed;inset:0;z-index:200;background:#fff;display:none;flex-direction:column}.ov.on{display:flex}
+.ovb{display:flex;align-items:center;gap:14px;background:#1c1e21;color:#fff;padding:10px 14px;font-size:14px}.ovb button{background:#fff;color:#1c1e21;border:0;border-radius:99px;padding:8px 16px;font-weight:600;cursor:pointer;font-family:inherit}.ov iframe{flex:1;border:0;width:100%}
+</style></head><body>
+<div class="ban">VOORBEELD — dit is geen echte advertentie en staat niet op Facebook</div>
+<div class="tabs">
+ <button data-v="m" class="on">📱 Op de gsm</button>
+ <button data-v="d">🖥️ Op de computer</button>
+ <button data-v="a">⚙️ In Ads Manager</button>
+</div>
+
+<div id="v-m" class="view on"><div class="phone">
+ <div class="mtop"><span class="lg">facebook</span><span class="ic"><i></i><i></i></span></div>
+ <div class="mnav"><span class="a">⌂</span><span>▶</span><span>👥</span><span>🔔</span><span>☰</span></div>
+ <div class="mcomp"><span class="av" style="width:36px;height:36px"></span><span class="pill">Waar denkt u aan?</span></div>
+ <div id="slot-m"></div>
+ <div class="ghost"><i style="width:40%"></i><i></i><i style="width:80%"></i></div>
+</div></div>
+
+<div id="v-d" class="view">
+ <div class="dtop"><div class="lg">f</div><div class="s">🔍 Zoeken op Facebook</div><div class="mid"><span class="a">⌂</span><span>▶</span><span>🏪</span><span>👥</span></div><div class="r"><i></i><i></i><i></i></div></div>
+ <div class="dgrid">
+  <div class="side"><div class="me"><i></i>Uw profiel</div><div>👥 Vrienden</div><div>🕒 Herinneringen</div><div>🔖 Opgeslagen</div><div>👪 Groepen</div><div>▶ Video</div><div>🏪 Marketplace</div></div>
+  <div class="dfeed"><div class="dcomp"><i></i><span class="pill">Waar denkt u aan?</span></div><div id="slot-d"></div></div>
+  <div class="side"><h4>Gesponsord</h4><div style="color:var(--tx2);font-weight:400;font-size:13px">Hier staan andere advertenties.</div><h4>Contacten</h4><div class="me"><i></i>&nbsp;</div><div class="me"><i></i>&nbsp;</div><div class="me"><i></i>&nbsp;</div></div>
+ </div>
+</div>
+
+<div id="v-a" class="view"><div class="am">
+ <div class="amtop"><b>Ads Manager</b><div class="crumb"><span>Campagne</span>›<span>Advertentieset</span>›<span class="a">Advertentie</span></div><div class="note" style="margin:0 0 0 auto">Voorbeeld: tekst hieronder is aanpasbaar</div></div>
+ <div class="amgrid"><div>
+  <div class="panel"><h3>Instellingen (voorbeeld)</h3><dl class="kv">
+   <dt>Doelstelling</dt><dd>Leads (aanvragen)</dd>
+   <dt>Bestemming</dt><dd>Website: landingspagina met formulier</dd>
+   <dt>URL-parameters</dt><dd>utm_source=facebook&amp;utm_campaign=de-witte-lelie-senioren</dd>
+   <dt>Bijzondere advertentiecategorie</dt><dd>Huisvesting</dd>
+   <dt>Locatie</dt><dd>Blankenberge, Brugge, Oostende (voorbeeld)</dd>
+   <dt>Plaatsingen</dt><dd>Facebook-feed en Facebook Reels</dd>
+   <dt>Budget</dt><dd>500 € per maand (voorbeeld)</dd>
+   <dt>Pagina</dt><dd>Centro Vastgoed</dd></dl>
+   <p class="note">De doelgroep volgt de regels van Meta voor huisvesting. Wij stellen die samen met u in.</p></div>
+  <div class="panel"><h3>Advertentietekst</h3>
+   <label>Primaire tekst</label><textarea id="i-pt"></textarea>
+   <label>Kop</label><input id="i-h">
+   <label>Beschrijving</label><input id="i-d">
+   <label>Oproep tot actie</label><select id="i-c"><option>Meer info</option><option>Bel nu</option><option>Bericht verzenden</option><option>Aanmelden</option></select></div>
+  <div class="panel"><h3>Waarom deze tekst werkt (voor ons, niet voor de lezer)</h3><div class="fw">
+   <div><b>Belofte</b> — eerste zin: geen tuinwerk meer.</div>
+   <div><b>Pijn</b> — het huis, de tuin en de trap worden te veel.</div>
+   <div><b>Bewijs</b> — echte feiten: m², prijs, plaats, opleverdatum.</div>
+   <div><b>Plan</b> — drie stappen, rustig en zonder druk.</div>
+   <div><b>Actie</b> — één telefoonnummer.</div>
+   <div><b>P.S.</b> — voor wie wel, voor wie niet.</div></div></div>
+ </div>
+ <div class="pv"><div class="ph"><span>Voorbeeld</span><span style="color:var(--tx2);font-weight:500">Facebook-feed</span></div><div class="box" id="slot-a"></div><button class="openlp" type="button">Open de landingspagina →</button></div>
+ </div>
+</div></div>
+
+<div class="ov" id="ov"><div class="ovb"><button id="ovx" type="button">← Terug naar de advertentie</button><span>U bent nu op de landingspagina (voorbeeld). Dit gebeurt na een klik op de knop.</span></div><iframe id="lpf" title="Landingspagina"></iframe></div>
+<div id="stage" style="display:none"><div class="ad" id="ad">
+ <div class="hd"><div class="av"><img alt="Centro" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMCAwaDUwMHY1MDBoLTUwMHoiLz48cGF0aCBkPSJtMCA0ODcuMjRoNTAwdjEyLjc2aC01MDB6IiBmaWxsPSIjMDBhMGRlIi8+PHBhdGggZD0ibTE1Ny44MSAyNTMuNzRjLTQuNjkuMTUtOS4yLTEuNzYtMTIuMzUtNS4yMy01LjkzLTcuMjQtNS45My0xNy42NSAwLTI0Ljg5IDMuMTUtMy40OCA3LjY3LTUuNCAxMi4zNi01LjI1IDMuNTctLjA3IDcuMDggMSAxMCAzLjA2IDIuNjkgMS45MyA0LjcxIDQuNjYgNS43NiA3LjgxbC45MiAyLjYyaC03Ljc1bC0uNTEtMS4yYy0uNjEtMS40OC0xLjY0LTIuNzUtMi45Ny0zLjY0LTEuMzgtLjkxLTMuMDItMS4zOC00LjY3LTEuMzMtMS42LS4wNS0zLjE5LjIxLTQuNjguNzktMS4xNC40OC0yLjE1IDEuMi0yLjk3IDIuMTItMy4zNiA0LjQtMy4zNiAxMC41IDAgMTQuOSAxLjk5IDIuMDcgNC43OSAzLjE0IDcuNjUgMi45MSAzLjM0LjExIDYuMzktMS44NyA3LjY1LTQuOTdsLjUxLTEuMmg3Ljc0bC0uOTIgMi42MmMtMS4wNSAzLjE1LTMuMDcgNS44OC01Ljc3IDcuODEtMi45MyAyLjA1LTYuNDMgMy4xMi0xMC4wMSAzLjA1di4wMnptODguNTktLjM3aC03LjAxbC0xNS45OS0yMS44N3YyMS44NWgtNy40MnYtMzQuNjFoN2wxNS45OSAyMS43OHYtMjEuNzhoNy40MnYzNC42MnptMjUuMjMgMGgtNy40MnYtMjcuMzVoLTEwLjcxdi03LjI3aDI4LjgzdjcuMjhoLTEwLjcxbC4wMiAyNy4zNHptNDguNjUgMGgtOC44NGwtNy40Mi0xMS43OGgtNy42djExLjc4aC03LjQydi0zNC42MmgxNi42N2MzLjI0LS4xNCA2LjQuOTggOC44NCAzLjExIDIuMzQgMi4xNyAzLjYxIDUuMjYgMy40NyA4LjQ1LjI4IDQuMTYtMi4xMiA4LjAzLTUuOTYgOS42NGwtLjM3LjE2IDguNjQgMTMuMjZ6bS0yMy44Ni0xOS4wMWg4LjY1YzMuOCAwIDQuNzctMS41OSA1LjA4LTIuMTEuMzEtLjYuNDUtMS4yNy40MS0xLjk0LjA4LTEuMTgtLjQtMi4zNC0xLjMtMy4xMS0xLjE0LS44OC0yLjU3LTEuMzItNC4wMS0xLjIyaC04Ljg0djguMzloLjAxem00NC45NCAxOS4zOGMtNC43Ny4xNC05LjM4LTEuNzUtMTIuNjgtNS4yLTYuNDktNy4wNy02LjQ5LTE3LjkyIDAtMjQuOTggNy4wNC02LjkyIDE4LjMzLTYuOTIgMjUuMzYgMCA2LjQ5IDcuMDcgNi40OSAxNy45MiAwIDI0Ljk4LTMuMyAzLjQ1LTcuOTEgNS4zNC0xMi42OCA1LjJ6bTAtMjguMDRjLTIuNzgtLjEzLTUuNDguOTUtNy40MSAyLjk1LTMuNiA0LjI4LTMuNiAxMC41MyAwIDE0LjgxIDQuMTYgMy45NCAxMC42OCAzLjk0IDE0Ljg1IDAgMy42MS00LjI4IDMuNjEtMTAuNTMgMC0xNC44MS0xLjk0LTIuMDEtNC42NS0zLjA4LTcuNDQtMi45NXoiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJtMTQwLjgyIDI3My4xNGg0LjM0bDIuNTkgOC41OSAyLjg4LTguNjRoMy41NGwyLjg2IDguNjMgMi41OS04LjU5aDQuMjZsLTQuOTYgMTQuOTZoLTMuNTlsLTIuOTktOC41NS0yLjk3IDguNTVoLTMuNTd6bTI1LjM5IDcuNDZ2LS4wNGMuMTYtNC40MiAzLjg4LTcuODYgOC4yOS03LjcgNC4xNy4xNiA3LjUyIDMuNDkgNy42OSA3LjY2di4wNGMtLjE2IDQuNDItMy44OCA3Ljg2LTguMjkgNy43LTQuMTctLjE2LTcuNTItMy40OS03LjY5LTcuNjZ6bTExLjc5IDB2LS4wNGMuMDgtMi4xMy0xLjU4LTMuOTItMy43MS00aC0uMTJjLTIuMDkuMDEtMy43NyAxLjcyLTMuNzYgMy44di4yYy0uMDggMi4xMyAxLjU3IDMuOTIgMy43IDQuMDFoLjFjMi4wOSAwIDMuNzktMS43IDMuNzgtMy43OXYtLjE4em03LjkgMHYtLjA0Yy4xNi00LjQyIDMuODgtNy44NiA4LjI5LTcuNyA0LjE3LjE2IDcuNTIgMy40OSA3LjY5IDcuNjZ2LjA0Yy0uMTYgNC40Mi0zLjg4IDcuODYtOC4yOSA3LjctNC4xNy0uMTYtNy41Mi0zLjQ5LTcuNjktNy42NnptMTEuNzkgMHYtLjA0Yy4wOC0yLjEzLTEuNTgtMy45Mi0zLjcxLTRoLS4xMmMtMi4wOS4wMS0zLjc3IDEuNzItMy43NiAzLjh2LjJjLS4wOCAyLjEzIDEuNTcgMy45MiAzLjcgNC4wMWguMWMyLjA5IDAgMy43OC0xLjcxIDMuNzgtMy44di0uMTd6bTguNC03LjQ2aDMuODRsNi4xMSA3Ljg1di03Ljg1aDQuMDh2MTQuODRoLTMuNjFsLTYuMzQtOC4xNHY4LjE0aC00LjA4em0xNy41MyAwaDQuNTlsMy4zOCA5LjQgMy4zNy05LjRoNC41MmwtNi4wMiAxNC45NWgtMy44M3ptMjIuMzctLjExaDMuOTZsNi4zMiAxNC45NWgtNC40MWwtMS4wOC0yLjY2aC01LjczbC0xLjA2IDIuNjVoLTQuMzRsNi4zMy0xNC45NHptMy42MSA5LjEtMS42NS00LjIyLTEuNjggNC4yMnptOC44NSAzLjY1IDIuMy0yLjc0YzEuMzUgMS4xMyAzLjA1IDEuNzYgNC44MSAxLjc5IDEuMSAwIDEuNy0uMzggMS43LTEuMDJ2LS4wNGMwLS42MS0uNDktLjk1LTIuNS0xLjQyLTMuMTYtLjcyLTUuNjEtMS42MS01LjYxLTQuNjd2LS4wNGMwLTIuNzYgMi4xOS00Ljc1IDUuNzUtNC43NSAyLjItLjA4IDQuMzcuNjIgNi4xMSAxLjk3bC0yLjA2IDIuOWMtMS4yLS45LTIuNjUtMS40MS00LjE1LTEuNDYtLjk5IDAtMS40OC40Mi0xLjQ4Ljk1di4wNGMwIC42OC41MS45OCAyLjU3IDEuNDQgMy40Mi43NCA1LjU0IDEuODQgNS41NCA0LjYydi4wNGMwIDMuMDQtMi40IDQuODUtNiA0Ljg1LTIuNTQuMDYtNS4wMi0uODItNi45NS0yLjQ3aC0uMDN6bTIwLjIxLTkuMDRoLTQuNDV2LTMuNmgxMy4wMXYzLjZoLTQuNDV2MTEuMjRoLTQuMTF6bTExLjI5IDMuODZ2LS4wNGMwLTQuMjYgMy40My03LjcxIDcuNjktNy43MmguMzFjMi4yMS0uMDggNC4zNi43IDYuMDIgMi4xNmwtMi40MSAyLjljLS45Ny0uOS0yLjI1LTEuNC0zLjU3LTEuNC0yLjE1LjA1LTMuODYgMS44NC0zLjggNHYuMTJjLS4xMSAyLjE2IDEuNTYgNCAzLjczIDQuMTFoLjNjLjg0LjA0IDEuNjYtLjE4IDIuMzctLjYxdi0xLjhoLTIuOTR2LTMuMDFoNi44M3Y2LjY4Yy0xLjgxIDEuNS00LjA5IDIuMzEtNi40NSAyLjMtNC4yMS4yNS03LjgyLTIuOTYtOC4wNy03LjE3LS4wMS0uMTctLjAxLS4zNC0uMDEtLjUxem0xOC4zNyAwdi0uMDRjLjE2LTQuNDIgMy44OC03Ljg2IDguMjktNy43IDQuMTcuMTYgNy41MiAzLjQ5IDcuNjkgNy42NnYuMDRjLS4xNiA0LjQyLTMuODggNy44Ni04LjI5IDcuNy00LjE3LS4xNi03LjUyLTMuNDktNy42OS03LjY2em0xMS43OSAwdi0uMDRjLjA4LTIuMTMtMS41OC0zLjkyLTMuNzEtNGgtLjEyYy0yLjA5LjAxLTMuNzcgMS43Mi0zLjc1IDMuODF2LjJjLS4wOCAyLjEzIDEuNTcgMy45MiAzLjcgNC4wMWguMWMyLjA5IDAgMy43OS0xLjcgMy43OC0zLjh2LS4xN3ptOC40MS03LjQ2aDExLjk0djMuNWgtNy44NnYyLjI1aDcuMTN2My4yNGgtNy4xM3YyLjM1aDcuOTd2My41aC0xMi4wNHYtMTQuODR6bTE2LjIgMGg1LjcyYzUuMyAwIDguMzggMy4wNiA4LjM4IDcuMzR2LjA0YzAgNC4yOC0zLjEyIDcuNDYtOC40NiA3LjQ2aC01LjY0em01Ljc5IDExLjJjMiAuMjUgMy44MS0xLjE3IDQuMDYtMy4xNy4wMi0uMTkuMDMtLjM5LjAyLS41OHYtLjA0Yy4wNy0yLjAxLTEuNTEtMy43MS0zLjUyLTMuNzgtLjE5IDAtLjM4IDAtLjU2LjAyaC0xLjY4djcuNTV6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0ibTE4MS40MyAyMTguNjdoMjYuMDh2Ni44N2gtMjYuMDh6bTAgMTMuODdoMTguNjd2Ni44N2gtMTguNjd6bTAgMTMuODdoMjYuMDh2Ni44N2gtMjYuMDh6IiBmaWxsPSIjMDBhMGRlIi8+PHBhdGggZD0ibTI1MC40NiA2Ny42Ni0uNDYtLjQ2LTE4Mi4zNSAxODIuMzUtLjQ2LjQ2IDE4MC4yMiAxODAuMjIgMi41NyAyLjU4IDE4Mi4zNi0xODIuMzQuNDYtLjQ2em0xNzIuMDIgMTgyLjM0LTE3Mi40OSAxNzIuNDgtMTcyLjQ4LTE3Mi40OCAxNzIuNDgtMTcyLjQ4IDE3Mi40OSAxNzIuNDd6IiBmaWxsPSIjZmZmIi8+PC9zdmc+"></div><div><b>Centro Vastgoed</b><small>Gesponsord · 🌐</small></div><span class="dots">··· ✕</span></div>
+ <div class="pt" id="pt"></div>
+ <div class="med" id="med"><video id="vid" src="video/de-witte-lelie.mp4" poster="video/poster.jpg" muted loop playsinline preload="auto"></video><span class="snd" id="snd">🔇 Geluid uit</span><div class="pbtn" id="pbtn">▶</div><div class="bar"><i id="bi"></i></div></div>
+ <div class="lk"><div class="t"><div class="u">centro.be</div><div class="h" id="h"></div><div class="d" id="d"></div></div><div class="cta" id="cta">Meer info</div></div>
+ <div class="re"><span>👍 Leuk</span><span>💬 Reageren</span><span>↪ Delen</span></div><div class="ft"></div>
+</div></div>
+
+<script>
+var PT="Elk weekend de tuin? De trap? Een huis dat te groot wordt?\n\nEr is een rustiger manier om te wonen.\n\nResidentie De Witte Lelie, Blankenberge:\n✔ Appartementen van 91 tot 147 m²\n✔ Vanaf 315.000 €\n✔ Op wandelafstand van winkels en supermarkt\n✔ Een terras of tuin om van te genieten\n\nEerlijk: u kunt nog niet binnen. Het gebouw is klaar in oktober 2027. Maar u kiest nog zelf hoe uw appartement eruitziet.\n\nHoe gaat het?\n1. U laat uw nummer achter, of u belt ons.\n2. U komt rustig kijken. Neem gerust uw familie mee.\n3. U kiest uw appartement, in uw tempo.\n\nVoor wie? Voor wie dicht bij alles en zonder zorgen wil wonen.\nNiet voor wie morgen al wil verhuizen.\n\n👉 Klik op de knop en laat uw nummer achter. Wij bellen u terug.\n📞 Liever zelf bellen? 050 70 01 02";
+var H="Nooit meer elk weekend de tuin?",D="Appartementen in Blankenberge vanaf 315.000 €";
+var ad=document.getElementById('ad'),pt=document.getElementById('pt'),exp=false,S={pt:PT,h:H,d:D,c:'Meer info'};
+function render(){var t=S.pt;if(!exp&&t.length>125){pt.innerHTML='';pt.append(t.slice(0,125).trim()+'… ');var a=document.createElement('a');a.textContent='Meer weergeven';a.onclick=function(e){e.stopPropagation();exp=true;render()};pt.append(a)}else{pt.textContent=t}
+document.getElementById('h').textContent=S.h;document.getElementById('d').textContent=S.d;document.getElementById('cta').textContent=S.c}
+render();
+var logo=document.querySelector('.av img').src;document.querySelectorAll('.mcomp .av').forEach(function(e){e.innerHTML='<img style="width:100%;height:100%" src="'+logo+'">'});
+var vid=document.getElementById('vid'),snd=document.getElementById('snd'),pb=document.getElementById('pbtn'),bi=document.getElementById('bi');
+function sync(){pb.classList.toggle('h',!vid.paused);snd.textContent=vid.muted?'🔇 Geluid uit — tik op de video':'🔊 Geluid aan'}
+vid.addEventListener('play',sync);vid.addEventListener('pause',sync);
+vid.addEventListener('timeupdate',function(){bi.style.width=(vid.currentTime/vid.duration*100)+'%'});
+document.getElementById('med').onclick=function(e){if(vid.paused){vid.muted=false;vid.play()}else if(vid.muted){vid.muted=false}else{vid.pause()}sync()};
+snd.onclick=function(e){e.stopPropagation();vid.muted=!vid.muted;sync()};
+function tryPlay(){var p=vid.play();if(p&&p.catch)p.catch(function(){sync()})}
+var slots={m:'slot-m',d:'slot-d',a:'slot-a'};
+function show(v){document.querySelectorAll('.view').forEach(function(e){e.classList.remove('on')});document.getElementById('v-'+v).classList.add('on');
+document.querySelectorAll('.tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.v===v)});
+document.getElementById(slots[v]).appendChild(ad);tryPlay()}
+document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){show(b.dataset.v)}});
+document.getElementById('i-pt').value=PT;document.getElementById('i-h').value=H;document.getElementById('i-d').value=D;
+[['i-pt','pt'],['i-h','h'],['i-d','d'],['i-c','c']].forEach(function(p){document.getElementById(p[0]).addEventListener('input',function(e){S[p[1]]=e.target.value;exp=false;render()})});
+
+var ov=document.getElementById('ov');
+function openLP(){document.getElementById('lpf').src='landingspagina.html';ov.classList.add('on');vid.pause()}
+function closeLP(){ov.classList.remove('on');document.getElementById('lpf').src='about:blank';tryPlay()}
+document.getElementById('ovx').onclick=closeLP;document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('on'))closeLP()});
+ad.querySelector('.lk').onclick=openLP;
+document.querySelector('.openlp').onclick=openLP;
+show('m');tryPlay();sync();
+</script></body></html>
